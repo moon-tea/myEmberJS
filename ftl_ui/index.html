@@ -12,7 +12,7 @@
 			<header id="header">
 				<span id="hull">HULL: 30</span>
 				<span id="scrap">51</span>
-				<button type="button" id="jump" class="btn-ftl">JUMP</button>
+				<button type="button" id="jump" class="">JUMP</button>
 				<button type="button" id="ship" class="btn-ftl">SHIP</button>
 				<span id="shields" class="new-line">sheilds: 1/4</span>
 				<span id="fuel-icon"><i class="fa fa-space-shuttle"></i></span><span id="fuel">16</span>
@@ -26,17 +26,18 @@
 			<section id="crew">
 				<ul id="crew-list">
 					<li>
-						<button class="crew-btn">
+						<button class="crew-btn male-1">
 							Ceasar
+							<span class="health-bar" class="new-line"></span>
 						</button>
 					</li>
 					<li>
-						<button class="crew-btn">
+						<button class="crew-btn mantis-1">
 							Pompey
 						</button>
 					</li>
 					<li>
-						<button class="crew-btn">
+						<button class="crew-btn slug-1">
 							Crassus
 						</button>
 					</li>
@@ -44,9 +45,11 @@
 			</section>		
 
 			<footer id="info">
+			<input type="button" id="outside-call" value="oak" onClick="JSCreateItem();"/>
 			<p>in progress</p>
 			</footer>
-
+			
 		</section>
+		<script src="js/outsideCall.js"></script>
 	</body>
 </html>
