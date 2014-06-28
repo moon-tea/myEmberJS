@@ -1,43 +1,18 @@
 Game.Router.map(function () {
-	this.resource('items', { path: '/' }, function () {
-		// additional child routes
-		this.route('equipped'); 
-		this.route('used');   
+	this.resource('crewmembers', { path: '/' }, function () {
+		//this.route('active');
+		//this.route('completed');
 	});
 });
 
-Game.ItemsRoute = Ember.Route.extend({
+Game.CrewmembersRoute = Ember.Route.extend({
 	model: function () {
-		return this.store.find('item');
+		return this.store.find('crewmember');
 	}
 });
 
-Game.ItemsIndexRoute = Ember.Route.extend({
-	model: function () {
-		return this.modelFor('items');
-	}
-});
-
-Game.ItemsEquippedRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.filter('item', function(item) {
-			return item.get('isEquipped');
-		});
-	},
-
-	renderTemplate: function(controller) {
-		this.render('items/index', {controller: controller});
-	}
-});
-
-Game.ItemsUsedRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.filter('item', function(item) {
-			return item.get('isUsed');
-		});
-	},
-
-	renderTemplate: function(controller) {
-		this.render('items/index', {controller: controller});
+Game.crewmembersIndexRoute = Ember.Route.extend({
+	setupController: function () {
+		this.controllerFor('crewmembers').set(this.modelFor('crewmembers'));
 	}
 });

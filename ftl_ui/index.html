@@ -8,48 +8,70 @@
 	</head>
 	<body>
 		<canvas id="c" style="border:2px solid black;" width="1280" height="720"></canvas>
-		<section id="game-view" class="d">
-			<header id="header">
-				<span id="hull">HULL: 30</span>
-				<span id="scrap">51</span>
-				<button type="button" id="jump" class="">JUMP</button>
-				<button type="button" id="ship" class="btn-ftl">SHIP</button>
-				<span id="shields" class="new-line">sheilds: 1/4</span>
-				<span id="fuel-icon"><i class="fa fa-space-shuttle"></i></span><span id="fuel">16</span>
-				<span id="rockets"> 8</span>
-				<span id="drones"> 2</span>
-				<span id="zoltan-shields" class="new-line"> zoltan-sheild: 0 </span>
-				<span id="evade" class="new-line"> EVADE: 15% </span>
-				<span id="oxygen" class="new-line"> OXYGEN: 100% </span>
-			</header>		
-
-			<section id="crew">
-				<ul id="crew-list">
-					<li>
-						<button class="crew-btn male-1">
-							Ceasar
-							<span class="health-bar" class="new-line"></span>
-						</button>
-					</li>
-					<li>
-						<button class="crew-btn mantis-1">
-							Pompey
-						</button>
-					</li>
-					<li>
-						<button class="crew-btn slug-1">
-							Crassus
-						</button>
-					</li>
-				</ul>				
-			</section>		
-
-			<footer id="info">
-			<input type="button" id="outside-call" value="oak" onClick="JSCreateItem();"/>
-			<p>in progress</p>
-			</footer>
+		<div class="d">
 			
-		</section>
-		<script src="js/outsideCall.js"></script>
+			
+			<section id="game-view">
+				<script type="text/x-handlebars" data-template-name="crewmembers/index">
+					<ul id="crew-list">
+						{{#each crewmemberController="crewmember"}}
+							<li {{bind-attr class="img_path"}} {{action "selected" on="mouseEnter"}}>
+								{{name}}
+								{{#if isHover}}
+									<ul id="skill-list">
+										<li class="skill combat-skill"> 	{{combatSkill}} 	</li>
+										<li class="skill engines-skill"> 	{{enginesSkill}}	</li>
+										<li class="skill piloting-skill">	{{pilotingSkill}}	</li>
+										<li class="skill repair-skill"> 	{{repairSkill}}		</li>
+										<li class="skill shields-skill"> 	{{shieldsSkill}}	</li>
+										<li class="skill weapons-skill"> 	{{weaponsSkill}}	</li>
+									</ul>									
+								{{/if}}
+							</li>
+						{{/each}}
+					</ul>
+				</script>
+				
+				
+				<script type="text/x-handlebars" data-template-name="crewmembers">
+					<section class="d">
+						<header id="header">
+							<span id="hull">HULL: 30</span>
+							<span id="scrap">51</span>
+							<button type="button" id="jump" class="">JUMP</button>
+							<button type="button" id="ship" class="btn-ftl">SHIP</button>
+							<span id="shields" class="new-line">sheilds: 1/4</span>
+							<span id="fuel-icon"><i class="fa fa-space-shuttle"></i></span><span id="fuel">16</span>
+							<span id="rockets"> 8</span>
+							<span id="drones"> 2</span>
+							<span id="zoltan-shields" class="new-line"> zoltan-sheild: 0 </span>
+							<span id="evade" class="new-line"> EVADE: 15% </span>
+							<span id="oxygen" class="new-line"> OXYGEN: 100% </span>
+						</header>
+						<section id="main">
+							{{outlet}}
+						</section>
+						<footer id="info">
+							<input type="button" id="outside-call" value="New Human" onClick="JSCreateCrewmember();"/>
+							<p>in progress</p>
+						</footer>
+					</section>
+				</script>				
+			</section>	
+		</div>
+		
+		<script src="js/libs/jquery/dist/jquery.js"></script>
+		<script src="js/libs/handlebars/handlebars.js"></script>
+		<script src="js/libs/ember/ember.js"></script>
+		<script src="js/libs/ember-data/ember-data.js"></script>
+		<script src="js/libs/ember-localstorage-adapter/localstorage_adapter.js"></script>
+		<script src="outsideCall.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/router.js"></script>
+		<script src="js/models/crewmember.js"></script>
+		<script src="js/controllers/crewmembers_controller.js"></script>
+		<script src="js/controllers/crewmember_controller.js"></script>
+		
+		
 	</body>
 </html>

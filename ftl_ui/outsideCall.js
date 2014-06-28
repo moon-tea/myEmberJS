@@ -1,6 +1,6 @@
-function JSCreateCrew() {
-	console.log("create crew_member: Cato");
-	var controller = Game.__container__.lookup("controller:crew_members");
+function JSCreateCrewmember() {
+	console.log("create crewmember: Cato");
+	var controller = Game.__container__.lookup("controller:crewmembers");
 	var boundSend = controller.send.bind(controller);
-	boundSend('gmCreateCrewMember','Cato', 'human');
+	boundSend('gmCreateCrewmember','Cato', 'human', 'male-1');
 }

@@ -47,6 +47,7 @@ input[type="checkbox"] {
 	position:relative;
 	background-color:#111;
 	margin-top:-720px;
+	margin-left: 5px;
 	z-index:2;
 	/*left: 50%;
 	top: 50%;
@@ -353,14 +354,17 @@ input[type="checkbox"] {
 }
 
 #crew-list li {
-	border: 2px solid gray;
-	margin-bottom: 3px;
+	border: 2px solid 61665f;
+	margin-bottom: 4px;
 	margin-left: -30px;
 	width:100px;
-	font-size: 10px;
+	font-size: 10px;	
+	/*padding-top: -30px;
+	display:table-col;*/
+	vertical-align:top;
 }
 
-.crew-btn:before {
+#crew-list li:before {
 	content:'';
 	display:inline-block;	
 	background-repeat: no-repeat;
@@ -368,24 +372,28 @@ input[type="checkbox"] {
 	height:18px;
 	width:25px;
 	background-position:center;
-	margin-top: 5px;
-	margin-left: -20px; 
+	margin-top: 2px;
+	margin-left: 2px; 
 	/*background-size: 100% 100%;*/
 }
-.crew-btn {
-	margin-bottom: -4px;
-}
-.crew-btn:after {
+#crew-list li:after {
 	content:'';
-	display:inline-block;
-	background-color:green;
+	display:list-item;
+	background-color:#28e42e;
 	color:green;
 	line-height: 5px;
 	height:5px;
-	width:45px;
+	width:60px;
 	margin-left: 35px;
-	margin-bottom: 5px;
+	margin-top: -10px;
+	margin-bottom: 2px;
 }
+
+#crew-list li:hover {
+	border-color: #88f188;
+	background:rgba(139,241,139,0.4); 
+}
+
 .male-1:before {
 	background-image: url(../img/crew/races/human/MaleHuman1.png);
 	background-size: 100% 100%; 	
@@ -399,6 +407,38 @@ input[type="checkbox"] {
 .slug-1:before {
 	background-image: url(../img/crew/races/slug/Slug1.png);
 	background-size: 70% 100%; 	
+}
+#skill-list {
+	list-style-type: none;
+	position: absolute;
+	left: 110px;
+	margin-top: -27px;
+	border: 2px solid 61665f;
+}
+#skill-list li {
+	margin-left: -40px;
+	border: none;
+}
+.skill:before {
+	background-size: 50% 50%;
+}
+.combat-skill:before {
+	background-image: url(../img/crew/skills/CombatSkill.png);
+}
+.engines-skill:before {
+	background-image: url(../img/crew/skills/EnginesSkill.png);
+}
+.piloting-skill:before {
+	background-image: url(../img/crew/skills/PilotingSkill.png);
+}
+.repair-skill:before {
+	background-image: url(../img/crew/skills/RepairSkill.png);
+}
+.shields-skill:before {
+	background-image: url(../img/crew/skills/ShieldsSkill.png);
+}
+.weapons-skill:before {
+	background-image: url(../img/crew/skills/WeaponsSkill.png);
 }
 
 #new-item,

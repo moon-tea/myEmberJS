@@ -1,4 +1,4 @@
-Game.CrewmemberController = Ember.ObjectController.extend({
+Game.CrewMemberController = Ember.ObjectController.extend({
 	actions: {
 		selected: function() {
 	 		console.log("isHover");

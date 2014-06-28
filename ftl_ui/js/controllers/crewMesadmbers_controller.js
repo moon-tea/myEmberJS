@@ -1,12 +1,12 @@
-Game.CrewmembersController = Ember.ArrayController.extend({
+Game.CrewMembersController = Ember.ArrayController.extend({
 	actions: {
-		createCrewmember: function() {
+		createCrewMember: function() {
 			// Get the item name set by the "New Item" text field
 			var name = this.get('newName');
 			if (!name.trim()) { return; }
 
 			// Create the new Item model
-			var item = this.store.createRecord('crewmember', {
+			var item = this.store.createRecord('crewMember', {
 				name: name,
 			});
 
@@ -17,19 +17,19 @@ Game.CrewmembersController = Ember.ArrayController.extend({
 			item.save();
 		},
 		
-		gmCreateCrewmember: function(name, race, img_path) {
+		gmCreateCrewMember: function(name, race, img_path) {
 			// Get the item name set by GameMaker
 			if (!name.trim() || !race.trim()) { return; }
 
 			// Create the new Item model
-			var crewmember = this.store.createRecord('crewmember', {
+			var crewMember = this.store.createRecord('crewMember', {
 				name: name,
 				race: race,
 				img_path: img_path
 			});			
 
 			// Save the new model
-			crewmember.save();
+			crewMember.save();
 		}
 	}/*,
 		
